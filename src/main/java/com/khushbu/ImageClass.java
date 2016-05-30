@@ -22,7 +22,7 @@ public class ImageClass {
     }
 
 
-    @POST
+    @GET
     @Path("postimage")
     @Produces(MediaType.TEXT_PLAIN)
     public String PostImage(String s)
