@@ -19,7 +19,9 @@ public class MyResource {
      */
     @GET
     @Produces(MediaType.TEXT_PLAIN)
+    @Path("/getIt")
     public String getIt() {
+
         return "Hello, Heroku!";
     }
 }
