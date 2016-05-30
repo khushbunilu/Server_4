@@ -15,17 +15,19 @@ public class ImageClass {
 
     @GET
     @Path("getimage")
-    public void GetImage(String s)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String GetImage(String s)
     {
-       System.out.println("hello");
+       return ("hello");
     }
 
 
     @POST
     @Path("postimage")
-    public void PostImage(String s)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String PostImage(String s)
     {
-        System.out.println("helloworld");
+        return ("helloworld");
     }
 
 
