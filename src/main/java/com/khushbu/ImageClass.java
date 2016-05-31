@@ -1,30 +1,16 @@
 package com.khushbu;
 
 
+import sun.misc.BASE64Decoder;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.Base64;
 
 /**
  * Created by khushbu on 31/5/16.
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @Path("imageclass")
 
@@ -40,9 +26,17 @@ public class ImageClass {
         System.out.println("img is "+s);
        // InputStream stream = new ByteArrayInputStream(Base64.decode(imageDataBytes.getBytes(), Base64.DEFAULT));
 
-        byte[] decoded = Base64.getDecoder().decode(s);
-        System.out.println(decoded);
-        return ("img is "+s+"\n\n decoded is "+decoded);
+        try {
+            BASE64Decoder decoder = new BASE64Decoder();
+            byte[] decodedBytes = decoder.decodeBuffer(s);
+            System.out.println(decodedBytes);
+            return ("img is "+s+"\n\n decoded is "+decodedBytes);
+        }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+
+        return ("img is "+s);
     }
 
 
