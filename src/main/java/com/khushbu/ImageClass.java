@@ -34,7 +34,7 @@ public class ImageClass {
             System.out.println(decodedBytes);
             obj.put("status", "Success");
             obj.put("img", s);
-            obj.put("decoded",decodedBytes)
+            obj.put("decoded",decodedBytes);
             return  String.valueOf(obj);
         }catch(Exception e)
             {
