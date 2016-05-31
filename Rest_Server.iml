@@ -75,5 +75,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.ow2.asm:asm-debug-all:5.0.4" level="project" />
     <orderEntry type="library" name="Maven: net.iharder:base64:2.3.9" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20151123" level="project" />
   </component>
 </module>

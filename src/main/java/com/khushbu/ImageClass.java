@@ -1,6 +1,7 @@
 package com.khushbu;
 
 
+import org.json.JSONObject;
 import sun.misc.BASE64Decoder;
 
 import javax.ws.rs.*;
@@ -18,11 +19,12 @@ public class ImageClass {
 
     @POST
     @Path("getimage")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces("application/json")
     public String GetImage(@FormParam("Image")String s)
     {
         String imageDataBytes = s.substring(s.indexOf(",")+1);
 
+        JSONObject obj= new JSONObject();
         System.out.println("img is "+s);
        // InputStream stream = new ByteArrayInputStream(Base64.decode(imageDataBytes.getBytes(), Base64.DEFAULT));
 
@@ -30,13 +32,17 @@ public class ImageClass {
             BASE64Decoder decoder = new BASE64Decoder();
             byte[] decodedBytes = decoder.decodeBuffer(s);
             System.out.println(decodedBytes);
-            return ("img is "+s+"\n\n decoded is "+decodedBytes);
+            obj.put("status", "Success");
+            obj.put("img", s);
+            obj.put("decoded",decodedBytes)
+            return  String.valueOf(obj);
         }catch(Exception e)
             {
                 e.printStackTrace();
             }
 
-        return ("img is "+s);
+        obj.put("status", "failure");
+        return  String.valueOf(obj);
     }
 
 
