@@ -174,7 +174,13 @@ public class ImageClass {
             int Number_of_Files=new File("TrainingSet").list().length;
 
 
-
+            if (Number_of_Files<2)
+            {
+                obj.put("status", "Success");
+                obj.put("name", "null");
+                obj.put("percentage", "0");
+                return  String.valueOf(obj);
+            }
 
 
 
@@ -200,6 +206,7 @@ public class ImageClass {
 
             obj.put("status", "Success");
             obj.put("name", HashMap.get(imname));
+            obj.put("percentage", String.valueOf(ImageRecognizer.Sim));
             return  String.valueOf(obj);
         }catch(Exception e)
             {

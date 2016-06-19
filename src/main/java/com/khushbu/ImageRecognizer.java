@@ -30,6 +30,8 @@ public class ImageRecognizer {
 	private Map<String, Matrix> mappedImages;
 	private Map<String, Matrix> mappedImages1;
 
+	static Double Sim;
+
 
 	public ImageRecognizer() {
 		mappedImages = new HashMap<String, Matrix>();
@@ -151,6 +153,7 @@ public class ImageRecognizer {
                 if(i==0)
                 {
                     s1=s;
+					Sim=similarity;
                 }
 			}
 
